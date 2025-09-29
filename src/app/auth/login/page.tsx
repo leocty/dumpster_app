@@ -123,8 +123,7 @@ export default function LoginPage() {
             </div>
           
               <Button
-              type="primary" 
-              style={{background: '#B3E5FC'}} 
+              type="primary"  
               size="large" 
               htmlType="submit" 
               className="w-full"  >
