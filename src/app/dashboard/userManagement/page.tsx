@@ -137,6 +137,16 @@ export default function UserManagementPage() {
     }
   };
 
+  const validateConfirmPassword = (_: any, value: string) => {
+    if (!value) {
+      return Promise.reject(new Error('Please confirm your password'));
+    }
+    if (value !== form.getFieldValue('password')) {
+      return Promise.reject(new Error('The passwords do not match'));
+    }
+    return Promise.resolve();
+  };
+
   // Actualizar usuario
   const handleUpdate = async (values:User) => {
     try {
@@ -150,7 +160,7 @@ export default function UserManagementPage() {
       setModalVisible(false);
       setEditingUser(undefined);
       form.resetFields();}
-
+       fetchUsers();
     } catch (error:any) {
       message.error(error.message);
     }
@@ -337,6 +347,26 @@ export default function UserManagementPage() {
               <Input placeholder="User name" />
             </Form.Item>
 
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                     { required: true, message: 'Please enter your password' },
+                     { min: 6, message: 'The password must be at least 6 characters long' }
+                     ]}
+            >
+              <Input.Password placeholder="**********" />
+            </Form.Item>
+
+            <Form.Item
+              label="Confirm Password"
+              name="confirmPassword"
+              rules={[{ required: true, message: 'Please confirm your password' }
+                , { validator: validateConfirmPassword }
+              ]}
+            >
+             <Input.Password placeholder="**********" />
+            </Form.Item>
              <Form.Item
               label="Role"
               name="role"
