@@ -13,13 +13,13 @@ viewBox="0 0 1200 500"
 
  
   <text x="420" y="225" font-family="Montserrat, 'Arial Black', Arial, sans-serif"
-        font-size="120" font-weight="800" fill="#d9d9d9" letter-spacing="2">
+        font-size="120" font-weight="800" fill="#000000" letter-spacing="2">
     DUMPSTER
   </text>
 
  
   <text x="420" y="300" font-family="Montserrat, Arial, sans-serif"
-        font-size="60" font-weight="700" fill="#d9d9d9" letter-spacing="4">
+        font-size="60" font-weight="700" fill="#000000" letter-spacing="4">
     RENTAL SERVICES
   </text>
 </svg>

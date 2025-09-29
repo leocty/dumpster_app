@@ -124,7 +124,7 @@ export default function LoginPage() {
           
               <Button
               type="primary" 
-              style={{background: '#97161a'}} 
+              style={{background: '#B3E5FC'}} 
               size="large" 
               htmlType="submit" 
               className="w-full"  >

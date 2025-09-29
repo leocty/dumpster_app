@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #D1C4E9;
   --foreground: #171717;
 
   /* Colores claros */
@@ -12,18 +12,18 @@
   --menu-border-light: #d9d9d9;
 
   /* Colores oscuros */
-  --menu-bg-dark: #97161a ;
-  --menu-text-dark: #ffffff;
-  --menu-hover-dark: #df9676;
-  --menu-text-hover-dark: #97161a;
-  --menu-selected-dark: #ff4d4f;
-  --menu-text-selected-dark: #97161a ;
+  --menu-bg-dark: #FFF9C4 ;
+  --menu-text-dark: #171717;
+  --menu-hover-dark: #D1C4E9;
+  --menu-text-hover-dark: #171717;
+  --menu-selected-dark: #B3E5FC;
+  --menu-text-selected-dark: #171717 ;
   --menu-border-dark: #424242;
 
   /* Colores primarios */
-  --primary-color: #97161a ;
-  --primary-hover: #ff4d4f ;
-  --secondary-hover: #300a04;
+  --primary-color: #FFF9C4 ;
+  --primary-hover: #B3E5FC;
+  --secondary-hover: #D1C4E9;
 }
 
 @theme inline {
@@ -90,6 +90,35 @@ body {
   color: var(--menu-text-selected-dark) !important;
   background: var(--menu-selected-dark) !important;
   font-weight: 600;
+}
+
+.ant-menu-dark .ant-menu-sub .ant-menu-item {
+  background: var(--menu-bg-dark) !important;
+  color: var(--menu-text-dark) !important;
+  border-radius: 8px;
+  margin: 4px 8px;
+}
+.ant-menu-dark .ant-menu-submenu-title {
+  background: var(--menu-hover-dark) !important;
+  color: var(--menu-text-dark) !important;
+  border-radius: 8px;
+  margin: 4px 8px;
+}
+
+
+.ant-menu-dark .ant-menu-sub .ant-menu-item:hover {
+  color: var( --menu-text-hover-dark) !important;
+  background: var(--menu-hover-dark) !important;
+}
+
+.ant-menu-dark .ant-menu-sub .ant-menu-item-selected {
+  color: var(--menu-text-selected-dark) !important;
+  background: var(--menu-selected-dark) !important;
+  font-weight: 600;
+}
+ 
+.ant-menu-dark .ant-menu-submenu  .ant-menu-sub{
+   background: var(--menu-bg-dark) !important;
 }
 
 .ant-layout-sider{
