@@ -256,7 +256,7 @@ export default function CustomersPage() {
           <Col span={24}><p><strong>Work Address:</strong> {item.address}</p></Col> 
         </Row>
         <Row gutter={16}>
-          <Col span={6}> <p><strong>Zip Code:</strong> {item.zipCode}</p></Col>
+          <Col span={6}> <p><strong>Zip Code:</strong> {item.addressZipCode}</p></Col>
           <Col span={6}> <p><strong>Contact Name:</strong> {item.contactName || 'No disponible'}</p></Col>
           <Col span={6}> <p><strong>Contact Phone:</strong> {item.contactPhone || 'No disponible'}</p></Col>
           <Col span={6}><Popconfirm
@@ -474,7 +474,7 @@ export default function CustomersPage() {
 
              <Form.Item
               label="Name"
-              name="name"
+              name="addressName"
               rules={[{ required: true, message: 'Please enter this field' }]}
             >
               <Input placeholder="Name" />
@@ -490,7 +490,7 @@ export default function CustomersPage() {
 
              <Form.Item
               label="City"
-              name="city"
+              name="addressCity"
               rules={[{ required: true, message: 'Please enter this field' }]}
             >
               <Input placeholder="City" />
@@ -498,7 +498,7 @@ export default function CustomersPage() {
 
             <Form.Item
               label="State"
-              name="state"
+              name="addressState"
               rules={[{ required: true, message: 'Please enter this field' }]}
             >
               <Input placeholder="State" />
@@ -506,7 +506,7 @@ export default function CustomersPage() {
 
              <Form.Item
               label="Zip Code"
-              name="zipCode"
+              name="addressZipCode"
               rules={[{ required: true, message: 'Please enter this field' }]}
             >
               <Input placeholder="Zip Code" />

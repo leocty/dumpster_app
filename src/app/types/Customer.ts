@@ -13,11 +13,11 @@ export interface Customer {
 }
 export interface WorkAddress {
   id: number;
-  name: string; 
+  addressName: string; 
   address: string; 
-  city: string; 
-  state: string; 
-  zipCode: string; 
+  addressCity: string; 
+  addressState: string; 
+  addressZipCode: string; 
   contactName: string; 
   contactPhone: string; 
   latitude: number; 

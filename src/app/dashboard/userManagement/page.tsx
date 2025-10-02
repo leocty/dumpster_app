@@ -361,8 +361,7 @@ export default function UserManagementPage() {
             <Form.Item
               label="Confirm Password"
               name="confirmPassword"
-              rules={[{ required: true, message: 'Please confirm your password' }
-                , { validator: validateConfirmPassword }
+              rules={[ { validator: validateConfirmPassword }
               ]}
             >
              <Input.Password placeholder="**********" />
