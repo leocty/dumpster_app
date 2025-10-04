@@ -14,7 +14,8 @@ import {
   Select,
   Badge,
   Spin,
-  Tag,  
+  Tag,
+  InputNumber,  
 } from 'antd';
 import {
   PlusOutlined,
@@ -79,6 +80,7 @@ export default function DumpsterPage() {
     const searchFields = [
     { value: 'all', label: 'All fields' },
     { value: 'size', label: 'Size' },
+    { value: 'weight', label: 'Weight' },
     { value: 'name', label: 'Name' },
     { value: 'dumpsterStatus', label: 'Dumpster Status' },
     { value: 'description', label: 'Description' }, 
@@ -210,17 +212,24 @@ export default function DumpsterPage() {
       sorter: (a, b) => a.id - b.id,
     },
     {
+      title: 'Name',
+      dataIndex: 'serialNumber',
+      key: 'serialNumber',
+      sorter: (a, b) =>  a.name.localeCompare(b.name),
+    }, 
+    {
       title: 'Size',
       dataIndex: 'size',
       key: 'size',
       sorter: (a, b) =>  a.id - b.id,
     },
-    {
-      title: 'Name',
-      dataIndex: 'serialNumber',
-      key: 'serialNumber',
-      sorter: (a, b) =>  a.name.localeCompare(b.name),
-    },    
+     {
+      title: 'Weight',
+      dataIndex: 'weight',
+      key: 'weight',
+      sorter: (a, b) =>  a.id - b.id,
+    },
+       
     {
       title: 'Dumpster Status',
       dataIndex: 'dumpsterStatus',
@@ -365,6 +374,15 @@ export default function DumpsterPage() {
             <Select.Option value="25">25</Select.Option>
           </Select>
         </Form.Item>
+
+            <Form.Item
+              label="Weight"
+              name="weight"
+              rules={[{ required: true, message: 'Please enter this field' }]}
+            >
+              <InputNumber
+                placeholder="Weight" />
+            </Form.Item> 
 
             <Form.Item
               label=" Name"

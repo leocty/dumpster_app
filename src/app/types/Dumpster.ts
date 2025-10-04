@@ -2,6 +2,7 @@ export interface Dumpster {
   id: number;
   name: string;
   size: number;
+  weight: number;
   description: string;
   dumpsterStatus:DumpsterStatus;
 }

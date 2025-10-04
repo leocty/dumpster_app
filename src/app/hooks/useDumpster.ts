@@ -26,6 +26,7 @@ export function useDumpster()  {
         allDumpsters = allDumpsters.filter(dumpster =>
           ((searchField=="all"||searchField=="name") && dumpster.name.toLowerCase().includes(term)) ||
           ((searchField=="all"||searchField=="size") && dumpster.size.toString().toLowerCase().includes(term)) ||
+          ((searchField=="all"||searchField=="weight") && dumpster.weight.toString().toLowerCase().includes(term)) ||
           ((searchField=="all"||searchField=="description") && dumpster.description.toLowerCase().includes(term)) ||
            ((searchField=="all"||searchField=="DumpsterStatus") &&  dumpster.dumpsterStatus.name.toLowerCase().includes(term))
         );
