@@ -1,6 +1,6 @@
 export interface Dumpster {
   id: number;
-  name: string;
+  serialNumber: string;
   size: number;
   weight: number;
   description: string;

@@ -219,19 +219,13 @@ export default function FixPage() {
       title: 'Tons Over Weight Amount',
       dataIndex: 'tonsOverWeightAmount',
       key: 'tonsOverWeightAmount',
-     sorter: (a, b) => a.id - b.id,
-     render: (value:number) => ( 
-                   <p>{value}%</p>
-                 ) 
+     sorter: (a, b) => a.id - b.id
     },
     {
       title: 'Days Over Time Amount',
       dataIndex: 'daysOverTimeAmount',
       key: 'daysOverTimeAmount',
-     sorter: (a, b) => a.id - b.id,
-     render: (value:number) => ( 
-                   <p>{value}%</p>
-                 ) 
+     sorter: (a, b) => a.id - b.id
     },
     {
       title: 'Description',
@@ -377,8 +371,8 @@ export default function FixPage() {
               rules={[{ required: true, message: 'Please enter this field' }]}
             >
               <InputNumber
-               formatter={value => `${value||0}%`}
-               parser={value =>{return value ? value.replace('%', '') : ''} }
+              // formatter={value => `${value||0}%`}
+              // parser={value =>{return value ? value.replace('%', '') : ''} }
                placeholder="Tons Over Weight Amount" />
             </Form.Item> 
 
@@ -389,8 +383,8 @@ export default function FixPage() {
             >
               <InputNumber
               
-               formatter={value => `${value||0}%`}
-               parser={value =>{return value ? value.replace('%', '') : ''} }
+              // formatter={value => `${value||0}%`}
+              // parser={value =>{return value ? value.replace('%', '') : ''} }
                placeholder="Days Over Time Amount" />
             </Form.Item>
               

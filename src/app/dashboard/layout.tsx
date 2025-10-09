@@ -61,8 +61,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const router = useRouter();
  
 const [isMounted, setIsMounted] = useState(false);
- const width = window.innerWidth;
+
   useEffect(() => {
+    
+     const width = window.innerWidth;
     if( width<576){
       setCollapsed(true);
     }else{
