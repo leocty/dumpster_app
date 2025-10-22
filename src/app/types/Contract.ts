@@ -3,7 +3,7 @@ import { Dumpster } from "./Dumpster";
 import { Fix } from "./Fix";
 
 export interface Contract {
- id:number;
+    id:number;
     customer:Customer;
     workAddress:WorkAddress;
     dumpster:Dumpster;

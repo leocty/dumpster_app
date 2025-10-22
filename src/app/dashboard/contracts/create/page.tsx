@@ -391,7 +391,7 @@ const ContractForm = () => {
       dataIndex: 'tonsOverWeightAmount',
       key: 'tonsOverWeightAmount',
        render: (value:number) => ( 
-                   <p>{value}%</p>
+                   <p>{value}</p>
                  )   
     },
     {
@@ -399,7 +399,7 @@ const ContractForm = () => {
       dataIndex: 'daysOverTimeAmount',
       key: 'daysOverTimeAmount'  ,
        render: (value:number) => ( 
-                   <p>{value}%</p>
+                   <p>{value}</p>
                  ) 
     },
     {

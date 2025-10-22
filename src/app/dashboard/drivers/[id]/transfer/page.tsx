@@ -35,6 +35,8 @@ import EnumSelect from '@/app/ui/components/EnumSelect';
 import { TransferStatus, TransferType } from '@/app/types/enums';
 import { RangePickerProps } from 'antd/es/date-picker';
 import FDatePicker from '@/app/ui/components/FDatePicker';
+import SelectContract from '@/app/ui/components/SelectContract';
+import { Contract } from '@/app/types/Contract';
  
 
 const { Title } = Typography;
@@ -157,6 +159,8 @@ export default function TransferPage(props: { params: Promise<{ id: string }> })
   // Crear 
   const handleCreate = async (values:Transfer) => {
     try {
+      values.driver=driver;
+      values.transferDate=values.transferDate.format('YYYY-MM-DD').toString()
       const newTransfer = await createTransfer(values);
       setTransfers([...transfers,newTransfer]); 
 
@@ -172,7 +176,8 @@ export default function TransferPage(props: { params: Promise<{ id: string }> })
   const handleUpdate = async (values:Transfer) => {
     try {
         if(editingTransfer){
-
+      values.driver=driver;
+      values.transferDate=values.transferDate.format('YYYY-MM-DD').toString()
       const updatedTransfer = await updateTransfer(editingTransfer.id, values);
       setTransfers(transfers.map(Transfer => 
         Transfer.id === editingTransfer.id ? { ...Transfer, ...updatedTransfer } : Transfer
@@ -234,9 +239,15 @@ export default function TransferPage(props: { params: Promise<{ id: string }> })
     },
     {
       title: 'Contract',
-      dataIndex: 'contractString',
-      key: 'contractString',
-      sorter: (a, b) => a.contractString.localeCompare(b.contractString),
+      dataIndex: 'contract',
+      key: 'contract',  
+             render: (contract:Contract) => (
+              <Space direction="vertical" size={0}>
+                <strong>{contract?.customer.name}</strong>
+                <small style={{ color: '#666' }}>{contract?.workAddress.address}</small> 
+                <small style={{ color: '#666' }}>{"Base payment - "+(contract.fixContract.fix.customAmount+contract.fixContract.fix.landFillCost)}</small>          
+              </Space>
+            )
     },
     {
       title: 'Payment Percentage',
@@ -334,13 +345,7 @@ export default function TransferPage(props: { params: Promise<{ id: string }> })
   };
 
 
-  
- 
-  const onChangeDatePicker = (date) => {
-    if(date)
-  console.log(date.format('YYYY-MM-DD HH:mm:ss'));
-  };
-
+   
   return (
     <div style={{ padding: '24px' }}>
       <Card>
@@ -406,6 +411,31 @@ export default function TransferPage(props: { params: Promise<{ id: string }> })
             onFinish={editingTransfer ? handleUpdate : handleCreate}
           >
             <Form.Item
+              name="driver"
+              hidden
+            >
+              <Input />
+            </Form.Item>
+
+              <Form.Item
+              label="Contract"
+              name="contract"
+              rules={[{ required: true, message: 'Please enter this field' }]}
+            >
+               
+          <SelectContract 
+          onValueChange={(value) =>
+              {
+               
+               form.setFieldsValue({
+               contract: value,
+              });
+              }
+            }
+            editValue={editingTransfer?.id.toString()}/> 
+        </Form.Item>
+
+            <Form.Item
               label="Payment Percentage"
               name="paymentPercentage"
               rules={[{ required: true, message: 'Please enter this field' }]}
@@ -419,14 +449,14 @@ export default function TransferPage(props: { params: Promise<{ id: string }> })
               rules={[{ required: true, message: 'Please enter this field' }]}
             >
             <FDatePicker
-                  showTime
-                  format="YYYY/MM/DD HH:mm:ss"
+                  showTime={false}
+                  format="YYYY/MM/DD"
                   minDaysFromToday={0}
-                  onChange={onChangeDatePicker}
+                  //onChange={date=>{ updateFormData('startDate', date? date.format('YYYY-MM-DD').toString():""); }}
               />
             </Form.Item>
 
-            
+              
             <Form.Item
              label="Transfer Type"
              name="transferType"            
@@ -438,7 +468,7 @@ export default function TransferPage(props: { params: Promise<{ id: string }> })
                 />
            </Form.Item>
             
-           <Form.Item
+           { editingTransfer &&(<Form.Item
              label="Payment Status"
              name="paymentStatus"            
              rules={[{ required: true, message: 'Please select an option' }]}
@@ -448,7 +478,7 @@ export default function TransferPage(props: { params: Promise<{ id: string }> })
                  labelMap={TransferStatusLabels}
                 />
            </Form.Item>
-
+           )}
 
             <Form.Item
               label="Description"

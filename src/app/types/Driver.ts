@@ -1,3 +1,5 @@
+import { Contract } from "./Contract";
+
 export interface Driver {
   id: number;
   firstName: string; 
@@ -12,12 +14,10 @@ export interface Driver {
  
 export interface Transfer {
   id: number;
-  contractId: number;
-  contractString: string; 
-  driverId: number;
-  driverName: string;
+  contract: Contract;
+  driver: Driver;
   paymentPercentage: number;
-  transferDate:Date;
+  transferDate:string;
   transferType:string; 
   paymentStatus:string; 
   description:string;   
