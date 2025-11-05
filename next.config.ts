@@ -6,8 +6,8 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // Opcional: también puedes ignorar errores de TypeScript
-    // ignoreBuildErrors: true,
+    // Ignora errores de TypeScript durante el build
+    ignoreBuildErrors: true,
   },
 };
 

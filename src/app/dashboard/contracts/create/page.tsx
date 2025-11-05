@@ -23,16 +23,16 @@ const ContractForm = () => {
   const [customerType, setCustomerType] = useState('existing'); 
   const [workAddressType, setWorkAddressType] = useState('new'); 
   const [modalCustomerVisible, setModalCustomerVisible] = useState(false);
-  const [customerSelected , setCustomerSelected] = useState(null);
+  const [customerSelected , setCustomerSelected] = useState<Customer | null>(null);
   const [modalWorkAddressVisible, setModalWorkAddressVisible] = useState(false);
-  const [workAddressSelected, setWorkAddressSelected] = useState(null);
+  const [workAddressSelected, setWorkAddressSelected] = useState<WorkAddress | null>(null);
 
   const router = useRouter();
 
   const [modalDumpsterVisible, setModalDumpsterVisible] = useState(false);
-  const [dumpsterSelected, setDumpsterSelected] = useState(null);
+  const [dumpsterSelected, setDumpsterSelected] = useState<Dumpster | null>(null);
   const [modalFixVisible, setModalFixVisible] = useState(false);
-  const [fixSelected, setFixSelected] = useState(null);
+  const [fixSelected, setFixSelected] = useState<Fix | null>(null);
 
   const {getContractCreate,createContract,getContracts} = useContract();
   const [customers, setCustomers] = useState<Customer[]>([]);
@@ -141,17 +141,17 @@ const ContractForm = () => {
     
   };
 
-   const updateFormData = (step, values) => {
+   const updateFormData = (step: string, values: unknown) => {
   setFormData(prev => {
     if (prev.hasOwnProperty(step) && typeof prev[step] === 'object' &&
         !Array.isArray(prev[step]) && prev[step] !== null) {
-         
+
       return {
         ...prev,
         [step]: { ...prev[step], ...values }
       };
     } else {
-       
+
       return {
         ...prev,
         [step]: values
@@ -160,29 +160,29 @@ const ContractForm = () => {
   });
 };
 
-  const handleSelectCustomer = async (customer) => {
+  const handleSelectCustomer = async (customer: Customer) => {
    setCustomerSelected(customer);
     updateFormData('Customer', customer);
-    setModalCustomerVisible(false); 
+    setModalCustomerVisible(false);
     setWorkAddressSelected(null);
  };
 
-   const handleSelectWorkAddress = (workAddress) => {
+   const handleSelectWorkAddress = (workAddress: WorkAddress) => {
    setWorkAddressSelected(workAddress);
     updateFormData('WorkAddress', workAddress);
-    setModalWorkAddressVisible(false);  
+    setModalWorkAddressVisible(false);
   };
 
-  const handleSelectDumster = async (dumpster) => {
+  const handleSelectDumster = async (dumpster: Dumpster) => {
     setDumpsterSelected(dumpster);
     await updateFormData('dumsterId', dumpster.id);
-    setModalDumpsterVisible(false);  
+    setModalDumpsterVisible(false);
  };
 
- const handleSelectFix= async (fix) => {
+ const handleSelectFix= async (fix: Fix) => {
     setFixSelected(fix);
     await updateFormData('fixId', fix.id);
-     setModalFixVisible(false);  
+     setModalFixVisible(false);
  };
   const clearCustomerFields = () => {
  form.setFieldsValue({
@@ -211,24 +211,24 @@ const ContractForm = () => {
       });
   }
 
-  const handleSelectCustomerTypeChange = (e) => {
+  const handleSelectCustomerTypeChange = (e: { target: { value: string } }) => {
     setCustomerType(e.target.value);
     // Limpiar datos del cliente al cambiar el tipo
-     clearWorkAddressFields(); 
+     clearWorkAddressFields();
     if (e.target.value === 'new') {
       setCustomerSelected(null);
-     clearCustomerFields();       
+     clearCustomerFields();
     }
     console.log(customerSelected)
   };
 
-   const handleSelectWorkAddressTypeChange = (e) => {
+   const handleSelectWorkAddressTypeChange = (e: { target: { value: string } }) => {
     setWorkAddressType(e.target.value);
     // Limpiar datos del cliente al cambiar el tipo
     console.log(workAddressSelected)
     if (e.target.value === 'new') {
       setWorkAddressSelected(null);
-      clearWorkAddressFields(); 
+      clearWorkAddressFields();
     }
   };
 
