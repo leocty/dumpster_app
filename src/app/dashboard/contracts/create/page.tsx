@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Steps, Form, Input, Button, Card, Row, Col, Select, DatePicker, InputNumber, Divider, message, Radio, Table, Tag, Modal, Layout, Spin } from 'antd';
 import { UserOutlined, ContainerOutlined, CheckCircleOutlined, PlusOutlined, SearchOutlined, HomeOutlined, RestOutlined } from '@ant-design/icons';
-import { Customer } from '@/app/types/Customer';
+import { Customer, WorkAddress } from '@/app/types/Customer';
 import { useCustomer } from '@/app/hooks/useCustomer';
 import { useContract } from '@/app/hooks/useContract';
 import { Dumpster, DumpsterStatus } from '@/app/types/Dumpster';
@@ -46,8 +46,8 @@ const ContractForm = () => {
       setCustomers(response?.allCustomers||[]);
       setDumpsters(response?.allDumpsters||[]);
       setFixs(response?.allFixs||[]);
-      } catch (error:any) {
-       message.error(error.message);
+      } catch (error: unknown) {
+       message.error(error instanceof Error ? error.message : 'An error occurred');
     }  finally {
       setLoading(false);
     } 
@@ -116,7 +116,7 @@ const ContractForm = () => {
     setCurrent(current - 1);
   };
 
-  const onFinish = async (values: any) => {
+  const onFinish = async (values: unknown) => {
      try {
       const saveContract=await createContract(formData);
       form.resetFields();
@@ -135,8 +135,8 @@ const ContractForm = () => {
   });
 
 
-    } catch (error:any) {
-      message.error(error.message);
+    } catch (error: unknown) {
+      message.error(error instanceof Error ? error.message : 'An error occurred');
     }
     
   };
@@ -271,7 +271,7 @@ const ContractForm = () => {
     {
       title: 'Acción',
       key: 'accion',
-      render: (_: any, record: any) => (
+      render: (_: unknown, record: Customer) => (
         <Button 
           type="primary" 
           size="small"
@@ -322,9 +322,9 @@ const ContractForm = () => {
     {
       title: 'Acción',
       key: 'accion',
-      render: (_: any, record: any) => (
-        <Button 
-          type="primary" 
+      render: (_: unknown, record: WorkAddress) => (
+        <Button
+          type="primary"
           size="small"
           onClick={() => handleSelectWorkAddress(record)}
         >
@@ -363,9 +363,9 @@ const ContractForm = () => {
     {
       title: 'Acción',
       key: 'accion',
-      render: (_: any, record: any) => (
-        <Button 
-          type="primary" 
+      render: (_: unknown, record: Dumpster) => (
+        <Button
+          type="primary"
           size="small"
           onClick={() => handleSelectDumster(record)}
         >
@@ -410,9 +410,9 @@ const ContractForm = () => {
     {
       title: 'Acción',
       key: 'accion',
-      render: (_: any, record: any) => (
-        <Button 
-          type="primary" 
+      render: (_: unknown, record: Fix) => (
+        <Button
+          type="primary"
           size="small"
           onClick={() => handleSelectFix(record)}
         >
@@ -422,7 +422,7 @@ const ContractForm = () => {
     },
   ];
 
-  
+
   const Step1 = () => (
     <div>
       <Card title="Customer selection" style={{ marginBottom: 24 }}>
