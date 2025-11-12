@@ -49,6 +49,7 @@ const items: MenuItem[] = [
     getItem('Revenue', '/dashboard/reports/revenue', <DollarOutlined />),
     getItem('Contracts', '/dashboard/reports/contracts', <ReconciliationOutlined />),
     getItem('Utilization', '/dashboard/reports/utilization', <RestOutlined />),
+    getItem('Expenses', '/dashboard/reports/expenses', <MonitorOutlined />),
   ]),
   getItem('Contracts', '/dashboard/contracts',<ReconciliationOutlined />),
   getItem('Business Expenses', '/dashboard/businessExpenses',<MonitorOutlined />),

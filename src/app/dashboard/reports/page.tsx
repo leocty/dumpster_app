@@ -106,6 +106,28 @@ export default function ReportsPage() {
             color="bg-purple-500"
           />
         </div>
+        
+        {/* Expenses Metrics (if available) */}
+        {(financialMetrics.currentMonthExpenses !== undefined || financialMetrics.totalExpenses !== undefined) && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            {financialMetrics.currentMonthExpenses !== undefined && (
+              <MetricCard
+                title="Current Month Expenses"
+                value={`$${financialMetrics.currentMonthExpenses.toLocaleString()}`}
+                icon={<CurrencyDollarIcon className="w-6 h-6" />}
+                color="bg-red-500"
+              />
+            )}
+            {financialMetrics.totalExpenses !== undefined && (
+              <MetricCard
+                title="Total Expenses"
+                value={`$${financialMetrics.totalExpenses.toLocaleString()}`}
+                icon={<CurrencyDollarIcon className="w-6 h-6" />}
+                color="bg-orange-500"
+              />
+            )}
+          </div>
+        )}
       </div>
 
       {/* Operational Metrics */}

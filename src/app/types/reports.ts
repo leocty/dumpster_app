@@ -5,6 +5,8 @@ export interface FinancialMetrics {
   pendingPayments: number;
   additionalCharges: number;
   totalRevenue: number;
+  currentMonthExpenses?: number;
+  totalExpenses?: number;
 }
 
 export interface OperationalMetrics {
