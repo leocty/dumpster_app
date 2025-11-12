@@ -49,12 +49,12 @@ export default function ReportsPage() {
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <ExclamationCircleIcon className="mx-auto h-12 w-12 text-red-500 mb-4" />
-          <p className="text-red-600">{error || 'No se pudo cargar el dashboard'}</p>
+          <p className="text-red-600">{error || 'Could not load dashboard'}</p>
           <button
             onClick={loadDashboard}
             className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
           >
-            Reintentar
+            Retry
           </button>
         </div>
       </div>
@@ -67,40 +67,40 @@ export default function ReportsPage() {
     <div className="p-6 space-y-6">
       {/* Header */}
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-gray-900">Dashboard Ejecutivo</h1>
+        <h1 className="text-3xl font-bold text-gray-900">Executive Dashboard</h1>
         <button
           onClick={loadDashboard}
           className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2"
         >
           <ChartBarIcon className="w-4 h-4" />
-          Actualizar
+          Refresh
         </button>
       </div>
 
       {/* Financial Metrics */}
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Métricas Financieras</h2>
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">Financial Metrics</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <MetricCard
-            title="Ingresos del Mes"
+            title="Current Month Revenue"
             value={`$${financialMetrics.currentMonthRevenue.toLocaleString()}`}
             icon={<CurrencyDollarIcon className="w-6 h-6" />}
             color="bg-green-500"
           />
           <MetricCard
-            title="Pagos Pendientes"
+            title="Pending Payments"
             value={`$${financialMetrics.pendingPayments.toLocaleString()}`}
             icon={<ExclamationCircleIcon className="w-6 h-6" />}
             color="bg-yellow-500"
           />
           <MetricCard
-            title="Cargos Adicionales"
+            title="Additional Charges"
             value={`$${financialMetrics.additionalCharges.toLocaleString()}`}
             icon={<ArrowTrendingUpIcon className="w-6 h-6" />}
             color="bg-blue-500"
           />
           <MetricCard
-            title="Ingresos Totales"
+            title="Total Revenue"
             value={`$${financialMetrics.totalRevenue.toLocaleString()}`}
             icon={<CurrencyDollarIcon className="w-6 h-6" />}
             color="bg-purple-500"
@@ -110,34 +110,34 @@ export default function ReportsPage() {
 
       {/* Operational Metrics */}
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Métricas Operacionales</h2>
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">Operational Metrics</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <MetricCard
-            title="Contratos Activos"
+            title="Active Contracts"
             value={operationalMetrics.activeContracts.toString()}
             icon={<DocumentTextIcon className="w-6 h-6" />}
             color="bg-indigo-500"
           />
           <MetricCard
-            title="Dumpsters en Uso"
+            title="Dumpsters In Use"
             value={`${operationalMetrics.dumpstersInUse} / ${operationalMetrics.totalDumpsters}`}
             icon={<TruckIcon className="w-6 h-6" />}
             color="bg-cyan-500"
           />
           <MetricCard
-            title="Tasa de Utilización"
+            title="Utilization Rate"
             value={`${operationalMetrics.utilizationRate.toFixed(1)}%`}
             icon={<ArrowTrendingUpIcon className="w-6 h-6" />}
             color="bg-teal-500"
           />
           <MetricCard
-            title="Dumpsters Disponibles"
+            title="Available Dumpsters"
             value={operationalMetrics.dumpstersAvailable.toString()}
             icon={<TruckIcon className="w-6 h-6" />}
             color="bg-green-500"
           />
           <MetricCard
-            title="Transferencias Hoy"
+            title="Today's Transfers"
             value={operationalMetrics.todayTransfers.toString()}
             icon={<ChartBarIcon className="w-6 h-6" />}
             color="bg-orange-500"
@@ -149,22 +149,22 @@ export default function ReportsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Customer Metrics */}
         <div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">Métricas de Clientes</h2>
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Customer Metrics</h2>
           <div className="space-y-4">
             <MetricCard
-              title="Clientes Activos"
+              title="Active Customers"
               value={customerMetrics.totalActiveCustomers.toString()}
               icon={<UsersIcon className="w-6 h-6" />}
               color="bg-blue-500"
             />
             <MetricCard
-              title="Nuevos Este Mes"
+              title="New This Month"
               value={customerMetrics.newCustomersThisMonth.toString()}
               icon={<ArrowTrendingUpIcon className="w-6 h-6" />}
               color="bg-green-500"
             />
             <MetricCard
-              title="Con Pagos Vencidos"
+              title="With Overdue Payments"
               value={customerMetrics.customersWithOverduePayments.toString()}
               icon={<ExclamationCircleIcon className="w-6 h-6" />}
               color="bg-red-500"
@@ -174,22 +174,22 @@ export default function ReportsPage() {
 
         {/* Driver Metrics */}
         <div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">Métricas de Conductores</h2>
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Driver Metrics</h2>
           <div className="space-y-4">
             <MetricCard
-              title="Conductores Activos"
+              title="Active Drivers"
               value={driverMetrics.activeDrivers.toString()}
               icon={<UsersIcon className="w-6 h-6" />}
               color="bg-purple-500"
             />
             <MetricCard
-              title="Transferencias Pendientes"
+              title="Pending Transfers"
               value={driverMetrics.pendingTransfers.toString()}
               icon={<DocumentTextIcon className="w-6 h-6" />}
               color="bg-yellow-500"
             />
             <MetricCard
-              title="Pagos Pendientes"
+              title="Pending Payments"
               value={`$${driverMetrics.pendingDriverPayments.toLocaleString()}`}
               icon={<CurrencyDollarIcon className="w-6 h-6" />}
               color="bg-orange-500"
@@ -201,19 +201,19 @@ export default function ReportsPage() {
       {/* Top Customers */}
       {report.topCustomers.length > 0 && (
         <div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">Top 5 Clientes</h2>
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Top 5 Customers</h2>
           <div className="bg-white rounded-lg shadow overflow-hidden">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Cliente
+                    Customer
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Contratos
+                    Contracts
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Ingresos Totales
+                    Total Revenue
                   </th>
                 </tr>
               </thead>

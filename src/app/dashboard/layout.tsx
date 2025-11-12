@@ -44,15 +44,15 @@ function getItem(
 
 const items: MenuItem[] = [
   getItem('Home', '/dashboard/home',<HomeOutlined />),
-  getItem('Reportes', '/dashboard/reports',<BarChartOutlined />),
+  getItem('Reports', '/dashboard/reports',<BarChartOutlined />),
   getItem('Dumpsters', '/dashboard/dumpsters' ,<RestOutlined />),
   getItem('Customers', '/dashboard/customers',<SolutionOutlined />),
   getItem('Contracts', '/dashboard/contracts',<ReconciliationOutlined />),
-  getItem('Fixs', '/dashboard/fixs',<DollarOutlined />) ,
+  getItem('Fixes', '/dashboard/fixs',<DollarOutlined />) ,
   getItem('Drivers', '/dashboard/drivers',<CarOutlined />),
   getItem('Management', 'sub1' ,<ControlOutlined />, [
-    getItem('User ', '/dashboard/userManagement', <UserOutlined />),
-    getItem('Dumpsters Status ', '/dashboard/dumpstersStatus', <QuestionCircleOutlined />),
+    getItem('Users', '/dashboard/userManagement', <UserOutlined />),
+    getItem('Dumpster Status', '/dashboard/dumpstersStatus', <QuestionCircleOutlined />),
   ])  
  ];
 
