@@ -9,6 +9,7 @@ import {
   LogoutOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,    
+  MonitorOutlined,    
   QuestionCircleOutlined, 
   ReconciliationOutlined,
   RestOutlined, 
@@ -43,16 +44,17 @@ function getItem(
   
 
 const items: MenuItem[] = [
-  getItem('Home', '/dashboard/home',<HomeOutlined />),
-  getItem('Reports', 'reports' ,<BarChartOutlined />, [
-    getItem('Dashboard', '/dashboard/reports', <BarChartOutlined />),
+  getItem('Dashboard', '/dashboard/reports', <BarChartOutlined />),
+  getItem('Reports', 'reports' ,<BarChartOutlined />, [   
     getItem('Revenue', '/dashboard/reports/revenue', <DollarOutlined />),
     getItem('Contracts', '/dashboard/reports/contracts', <ReconciliationOutlined />),
     getItem('Utilization', '/dashboard/reports/utilization', <RestOutlined />),
   ]),
+  getItem('Contracts', '/dashboard/contracts',<ReconciliationOutlined />),
+  getItem('Business Expenses', '/dashboard/businessExpenses',<MonitorOutlined />),
   getItem('Dumpsters', '/dashboard/dumpsters' ,<RestOutlined />),
   getItem('Customers', '/dashboard/customers',<SolutionOutlined />),
-  getItem('Contracts', '/dashboard/contracts',<ReconciliationOutlined />),
+  
   getItem('Fixes', '/dashboard/fixs',<DollarOutlined />) ,
   getItem('Drivers', '/dashboard/drivers',<CarOutlined />),
   getItem('Management', 'sub1' ,<ControlOutlined />, [
