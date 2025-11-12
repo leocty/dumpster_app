@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import {
-  
+  BarChartOutlined,
   CarOutlined, 
   ControlOutlined, 
   DollarOutlined, 
@@ -43,15 +43,21 @@ function getItem(
   
 
 const items: MenuItem[] = [
-  getItem('Reports', '/dashboard/home',<HomeOutlined />),
+  getItem('Home', '/dashboard/home',<HomeOutlined />),
+  getItem('Reports', 'reports' ,<BarChartOutlined />, [
+    getItem('Dashboard', '/dashboard/reports', <BarChartOutlined />),
+    getItem('Revenue', '/dashboard/reports/revenue', <DollarOutlined />),
+    getItem('Contracts', '/dashboard/reports/contracts', <ReconciliationOutlined />),
+    getItem('Utilization', '/dashboard/reports/utilization', <RestOutlined />),
+  ]),
   getItem('Dumpsters', '/dashboard/dumpsters' ,<RestOutlined />),
   getItem('Customers', '/dashboard/customers',<SolutionOutlined />),
   getItem('Contracts', '/dashboard/contracts',<ReconciliationOutlined />),
-  getItem('Fixs', '/dashboard/fixs',<DollarOutlined />) ,
+  getItem('Fixes', '/dashboard/fixs',<DollarOutlined />) ,
   getItem('Drivers', '/dashboard/drivers',<CarOutlined />),
   getItem('Management', 'sub1' ,<ControlOutlined />, [
-    getItem('User ', '/dashboard/userManagement', <UserOutlined />),
-    getItem('Dumpsters Status ', '/dashboard/dumpstersStatus', <QuestionCircleOutlined />),
+    getItem('Users', '/dashboard/userManagement', <UserOutlined />),
+    getItem('Dumpster Status', '/dashboard/dumpstersStatus', <QuestionCircleOutlined />),
   ])  
  ];
 
