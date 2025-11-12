@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import {
-  
+  BarChartOutlined,
   CarOutlined, 
   ControlOutlined, 
   DollarOutlined, 
@@ -43,7 +43,8 @@ function getItem(
   
 
 const items: MenuItem[] = [
-  getItem('Reports', '/dashboard/home',<HomeOutlined />),
+  getItem('Home', '/dashboard/home',<HomeOutlined />),
+  getItem('Reportes', '/dashboard/reports',<BarChartOutlined />),
   getItem('Dumpsters', '/dashboard/dumpsters' ,<RestOutlined />),
   getItem('Customers', '/dashboard/customers',<SolutionOutlined />),
   getItem('Contracts', '/dashboard/contracts',<ReconciliationOutlined />),
