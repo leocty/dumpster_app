@@ -25,7 +25,7 @@ export default function LoginPage() {
        
          try{
             await login(username,password);
-            router.push("/dashboard/home");           
+            router.push("/dashboard/reports");           
          }catch (error) { 
             if (axios.isAxiosError(error)) {
             messageApi.error(error.message);
