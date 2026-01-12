@@ -11,6 +11,7 @@ export interface Contract {
     startDate:string;
     endDate:string;
     removalDate:string;
+    baseWeight:number
     contractStatus:string;
     contractPaymentStatus:string;
     description:string;

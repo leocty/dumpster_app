@@ -37,6 +37,7 @@ export function useContract()  {
   // CREATE
   const createContract = async (customersData:any) => {
     try {
+     console.log( "customersData",customersData)
       const response  = (await api.post('/contract', customersData)).data;
       return response;
     } catch (error: unknown) {

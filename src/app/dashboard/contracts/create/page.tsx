@@ -82,6 +82,7 @@ const ContractForm = () => {
     },
     dumsterId: "",
     fixId: "",
+    baseWeight:"",
     startDate: "",
     endDate: "",  
     description: ""  
@@ -118,6 +119,7 @@ const ContractForm = () => {
 
   const onFinish = async (values: unknown) => {
      try {
+      console.log(formData)
       const saveContract=await createContract(formData);
       form.resetFields();
       message.success('Contract created successfully');
@@ -130,7 +132,7 @@ const ContractForm = () => {
                </div>
                ),
                onOk() {
-                 router.push('/dashboard/home')  
+                 router.push('/dashboard/contracts')  
                },
   });
 
@@ -786,7 +788,7 @@ const ContractForm = () => {
                  <Form.Item
               label="City"
               name="addressCity"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[]}
             >
               <Input placeholder="City" />
             </Form.Item>
@@ -795,7 +797,7 @@ const ContractForm = () => {
                   <Form.Item
               label="State"
               name="addressState"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[]}
             >
               <Input placeholder="State" />
             </Form.Item>
@@ -807,7 +809,7 @@ const ContractForm = () => {
                  <Form.Item
               label="Contact Name"
               name="contactName"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[]}
             >
               <Input placeholder="Contact Name" />
             </Form.Item>
@@ -816,7 +818,7 @@ const ContractForm = () => {
                  <Form.Item
               label="Contact Phone"
               name="contactPhone"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[]}
             >
               <Input placeholder="Contact Phone" />
             </Form.Item>
@@ -828,7 +830,7 @@ const ContractForm = () => {
                  <Form.Item
               label="Zip Code"
               name="addressZipCode"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[]}
             >
               <Input placeholder="Zip Code" />
             </Form.Item>
@@ -929,10 +931,10 @@ const ContractForm = () => {
                   </Row>
                   <Row gutter={16}>
                   <Col span={12}>
-                    <p><strong>Tons Over Weight Amount:</strong> {fixSelected.tonsOverWeightAmount}%</p>
+                    <p><strong>Tons Over Weight Amount:</strong> {fixSelected.tonsOverWeightAmount}</p>
                   </Col>
                   <Col span={12}>
-                    <p><strong>Days Over Time Amount:</strong> {fixSelected.daysOverTimeAmount}%</p>
+                    <p><strong>Days Over Time Amount:</strong> {fixSelected.daysOverTimeAmount}</p>
                   </Col>                   
                   </Row>              
                   </div>          
@@ -947,6 +949,7 @@ const ContractForm = () => {
           layout="vertical"
           onFinish={async (values) => {
             await updateFormData('description', values.description); 
+            await updateFormData('baseWeight', values.baseWeight); 
            if(dumpsterSelected && fixSelected)
             next();
           }}
@@ -954,6 +957,22 @@ const ContractForm = () => {
         >
            
             <>
+
+             <Row gutter={16}>
+               <Col span={24}>
+                    <Form.Item
+              label="Base Weight"
+              name="baseWeight"
+              rules={[{ required: true, message: 'Please enter this field' }]}
+            >
+              <InputNumber
+               style={{ width: '49%' }}
+               stringMode
+                placeholder="Base Weight" />
+            </Form.Item> 
+                </Col>
+              </Row>
+
               <Row gutter={16}>
                 <Col span={12}>
                    <Form.Item
@@ -997,6 +1016,7 @@ const ContractForm = () => {
             </Form.Item>
                 </Col>
               </Row>
+             
  
             </>
         
@@ -1140,20 +1160,24 @@ const ContractForm = () => {
                <p><strong>Land Fill Cost:</strong> {fixSelected?.landFillCost}</p>
               </Col>
               <Col span={6}> 
-              <p><strong>Tons Over Weight Amount:</strong> {fixSelected?.tonsOverWeightAmount}%</p>
+              <p><strong>Tons Over Weight Amount:</strong> {fixSelected?.tonsOverWeightAmount}</p>
              </Col>
              <Col span={6}> 
-              <p><strong>Days Over Time Amount:</strong> { fixSelected?.daysOverTimeAmount}%</p>
+              <p><strong>Days Over Time Amount:</strong> { fixSelected?.daysOverTimeAmount}</p>
               </Col>
               </Row>
               <p><strong>Description:</strong> {fixSelected?.description}</p>
               </Card>
                <Divider />
       <Card  title="Contract Information">
+        
           <Row gutter={16}>
+            <Col span={6}>                
+              <p><strong>Base Weight:</strong> {formData.baseWeight}</p>
+              </Col>
                 <Col span={6}>                
               <p><strong>Start Date:</strong> {formData.startDate}</p>
-              </Col>
+              </Col> 
               <Col span={6}> 
               <p><strong>End Date:</strong> {formData.endDate}</p>
               </Col>

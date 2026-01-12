@@ -60,7 +60,7 @@ export default function ContractPage() {
   const [formPaymentsContract] = Form.useForm();
   const [extraDaysOrTons, setExtraDaysOrTons] = useState(false);
   const [formEditContract] = Form.useForm();
-    
+  const [editContract, setEditContract] = useState<Contract>();
   const hasShown = useRef(false);
   // Estados para búsqueda
   const [searchTerm, setSearchTerm] = useState('');
@@ -194,6 +194,7 @@ export default function ContractPage() {
   };
 
    const handleEditContract = (contract:Contract) => {   
+    setEditContract(contract);
     formEditContract.setFieldsValue({
                                 contractID: contract.id,
                                 startDate: dayjs( contract.startDate),
@@ -203,6 +204,7 @@ export default function ContractPage() {
                                                            :null,
                                 contractPaymentStatus: contract.contractPaymentStatus,
                                 contractStatus :  contract.contractStatus,
+                                baseWeight : contract.baseWeight,
                                 description :  contract.description
     });    
     console.log(esISO8601ConDayjs(contract.endDate));
@@ -247,7 +249,7 @@ export default function ContractPage() {
       setLoading(true);
       try {
         console.log(values);
-       await editContractsData({contractID: values.contractID,
+       await editContractsData({contractID: editContract?.id,
                                 startDate: values.startDate.format('YYYY-MM-DD').toString(),
                                 removalDate: values.removalDate && values.removalDate.isValid()
                                             ? values.removalDate.format('YYYY-MM-DD').toString()
@@ -255,6 +257,7 @@ export default function ContractPage() {
                                 endDate: values.endDate.format('YYYY-MM-DD').toString(),
                                 contractPaymentStatus: values.contractPaymentStatus,
                                 contractStatus :  values.contractStatus,
+                                baseWeight :values.baseWeight,
                                 description :  values.description});
       fetchContracts();
     } catch (error:any) {
@@ -586,6 +589,9 @@ export default function ContractPage() {
                <Divider />
       <Card  title="Contract Information">
           <Row gutter={16}>
+            <Col span={6}>                
+              <p><strong>Base Weight:</strong> {detailContract?.baseWeight}</p>
+              </Col>
                 <Col span={6}>                
               <p><strong>Start Date:</strong> {detailContract?.startDate}</p>
               </Col>
@@ -755,6 +761,20 @@ export default function ContractPage() {
             >
               <Input />
             </Form.Item>
+
+
+             <Form.Item
+              label="Base Weight"
+              name="baseWeight"
+              rules={[{ required: true, message: 'Please enter this field' }]}
+            >
+              <InputNumber
+               style={{ width: '49%' }}
+               stringMode
+                placeholder="Base Weight" />
+            </Form.Item> 
+
+
               <Row gutter={16}>
                 <Col span={12}>
                    <Form.Item

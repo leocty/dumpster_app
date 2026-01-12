@@ -375,14 +375,14 @@ export default function DumpsterPage() {
           </Select>
         </Form.Item>
 
-            <Form.Item
+         {/*  <Form.Item
               label="Weight"
               name="weight"
               rules={[{ required: true, message: 'Please enter this field' }]}
             >
               <InputNumber
                 placeholder="Weight" />
-            </Form.Item> 
+            </Form.Item> */}
 
             <Form.Item
               label=" Name"
