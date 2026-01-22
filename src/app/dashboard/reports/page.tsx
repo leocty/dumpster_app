@@ -100,10 +100,10 @@ export default function ReportsPage() {
             color="bg-blue-500"
           />
           <MetricCard
-            title="Total Revenue"
+            title="Total Delay"
             value={`$${financialMetrics.totalRevenue.toLocaleString()}`}
             icon={<CurrencyDollarIcon className="w-6 h-6" />}
-            color="bg-purple-500"
+            color="bg-red-500"
           />
         </div>
         

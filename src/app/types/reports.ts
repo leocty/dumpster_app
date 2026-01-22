@@ -98,7 +98,7 @@ export interface RevenueReport {
 export interface ContractSummary {
   totalContracts: number;
   activeContracts: number;
-  inactiveContracts: number;
+  finalizedContracts: number;
   pendingContracts: number;
   cancelledContracts: number;
   averageDuration: number;
@@ -110,7 +110,7 @@ export interface ContractDetail {
   customerName: string;
   startDate: string;
   endDate: string;
-  status: string;
+  contractStatus: string;
   monthlyAmount: number;
   dumpsterSize: string;
 }

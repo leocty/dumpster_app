@@ -104,13 +104,13 @@ export default function DumpsterUtilizationPage() {
             title="In Use"
             value={summary.inUse.toString()}
             icon={<TruckIcon className="w-6 h-6" />}
-            color="bg-green-500"
+            color="bg-red-500"
           />
           <SummaryCard
             title="Available"
             value={summary.available.toString()}
             icon={<TruckIcon className="w-6 h-6" />}
-            color="bg-cyan-500"
+            color="bg-green-500"
           />
           <SummaryCard
             title="Utilization Rate"
@@ -276,7 +276,7 @@ export default function DumpsterUtilizationPage() {
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Status
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  {/*  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Location
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -284,7 +284,7 @@ export default function DumpsterUtilizationPage() {
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Days In Use
-                    </th>
+                    </th>*/}
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -301,7 +301,7 @@ export default function DumpsterUtilizationPage() {
                           {dumpster.status}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                   { /*  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {dumpster.location || 'N/A'}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -309,7 +309,7 @@ export default function DumpsterUtilizationPage() {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {dumpster.daysInUse || 0}
-                      </td>
+                      </td>*/}
                     </tr>
                   ))}
                 </tbody>

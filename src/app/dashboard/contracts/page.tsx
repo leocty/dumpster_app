@@ -846,7 +846,7 @@ export default function ContractPage() {
             > 
            <Select>
               <Select.Option value="ACTIVE">Active</Select.Option>
-              <Select.Option value="INACTIVE">Inactive</Select.Option>
+              <Select.Option value="FINALIZED">Finalized</Select.Option>
               <Select.Option value="PENDING">Pending</Select.Option>
               <Select.Option value="CANCELLED">Cancelled</Select.Option>              
               </Select>

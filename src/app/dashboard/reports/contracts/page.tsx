@@ -48,10 +48,10 @@ export default function ContractReportPage() {
   };
 
   const getStatusBadgeColor = (status: string) => {
-    switch (status.toUpperCase()) {
+    switch (status) {
       case 'ACTIVE':
         return 'bg-green-100 text-green-800';
-      case 'INACTIVE':
+      case 'FINALIZED':
         return 'bg-gray-100 text-gray-800';
       case 'PENDING':
         return 'bg-yellow-100 text-yellow-800';
@@ -120,7 +120,7 @@ export default function ContractReportPage() {
           >
             <option value="">All Status</option>
             <option value="ACTIVE">Active</option>
-            <option value="INACTIVE">Inactive</option>
+            <option value="FINALIZED">Finalized</option>
             <option value="PENDING">Pending</option>
             <option value="CANCELLED">Cancelled</option>
           </select>
@@ -151,8 +151,8 @@ export default function ContractReportPage() {
             color="bg-green-500"
           />
           <SummaryCard
-            title="Inactive Contracts"
-            value={summary.inactiveContracts.toString()}
+            title="Finalized Contracts"
+            value={summary.finalizedContracts.toString()}
             icon={<DocumentTextIcon className="w-6 h-6" />}
             color="bg-gray-500"
           />
@@ -279,9 +279,7 @@ export default function ContractReportPage() {
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Status
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Monthly Amount
-                    </th>
+                     
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Dumpster Size
                     </th>
@@ -303,13 +301,10 @@ export default function ContractReportPage() {
                         {contract.endDate}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm">
-                        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getStatusBadgeColor(contract.status)}`}>
-                          {contract.status}
+                        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getStatusBadgeColor(contract.contractStatus)}`}>
+                          {contract.contractStatus}
                         </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-semibold">
-                        ${contract.monthlyAmount.toLocaleString()}
-                      </td>
+                      </td>                       
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {contract.dumpsterSize}
                       </td>
