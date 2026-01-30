@@ -475,7 +475,7 @@ export default function CustomersPage() {
              <Form.Item
               label="Name"
               name="addressName"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[{ required: false, message: 'Please enter this field' }]}
             >
               <Input placeholder="Name" />
             </Form.Item>
@@ -483,7 +483,7 @@ export default function CustomersPage() {
              <Form.Item
               label="Address"
               name="address"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[{ required: false, message: 'Please enter this field' }]}
             >
               <Input placeholder="Address" />
             </Form.Item>
@@ -491,7 +491,7 @@ export default function CustomersPage() {
              <Form.Item
               label="City"
               name="addressCity"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[{ required: false, message: 'Please enter this field' }]}
             >
               <Input placeholder="City" />
             </Form.Item>
@@ -499,7 +499,7 @@ export default function CustomersPage() {
             <Form.Item
               label="State"
               name="addressState"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[{ required: false, message: 'Please enter this field' }]}
             >
               <Input placeholder="State" />
             </Form.Item>
@@ -507,7 +507,7 @@ export default function CustomersPage() {
              <Form.Item
               label="Zip Code"
               name="addressZipCode"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[{ required: false, message: 'Please enter this field' }]}
             >
               <Input placeholder="Zip Code" />
             </Form.Item>
@@ -515,7 +515,7 @@ export default function CustomersPage() {
              <Form.Item
               label="Contact Name"
               name="contactName"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[{ required: false, message: 'Please enter this field' }]}
             >
               <Input placeholder="Contact Name" />
             </Form.Item>
@@ -523,7 +523,7 @@ export default function CustomersPage() {
              <Form.Item
               label="Contact Phone"
               name="contactPhone"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[{ required: false, message: 'Please enter this field' }]}
             >
               <Input placeholder="Contact Phone" />
             </Form.Item>
@@ -558,7 +558,7 @@ export default function CustomersPage() {
             <Form.Item
               label="Name"
               name="name"
-              rules={[{ required: true, message: 'Please enter your name' }]}
+              rules={[{ required: false, message: 'Please enter your name' }]}
             >
               <Input placeholder="Name" />
             </Form.Item>
@@ -566,7 +566,7 @@ export default function CustomersPage() {
              <Form.Item
               label="Tax Id"
               name="taxId"
-              rules={[{ required: true, message: 'Please enter your tax id' }]}
+              rules={[{ required: false, message: 'Please enter your tax id' }]}
             >
               <Input placeholder="Tax Id" />
             </Form.Item>
@@ -574,7 +574,7 @@ export default function CustomersPage() {
             <Form.Item
               label="Home Address"
               name="homeAddress"
-              rules={[{ required: true, message: 'Please enter your home address' }]}
+              rules={[{ required: false, message: 'Please enter your home address' }]}
             >
               <TextArea rows={2} placeholder="Home Address" />
             </Form.Item>
@@ -606,7 +606,7 @@ export default function CustomersPage() {
             <Form.Item
               label="Email"
               name="email"
-              rules={[{ required: true, message: 'Please enter your email' },
+              rules={[{ required: false, message: 'Please enter your email' },
                       { type: 'email', message: 'Invalid email' }
                      ]}
             >
@@ -616,7 +616,7 @@ export default function CustomersPage() {
             <Form.Item
               label="Phone"
               name="phone"
-              rules={[{ required: true, message: 'Please enter your phone' }]}
+              rules={[{ required: false, message: 'Please enter your phone' }]}
             >
              <Input placeholder="+1 234 567 8900" />
             </Form.Item>

@@ -539,7 +539,7 @@ const ContractForm = () => {
               label="Name"
               name="name"
               key= "customer_name"
-              rules={[{ required: true, message: 'Please enter your name' }]}
+              rules={[{ required: false, message: 'Please enter your name' }]}
             >
               <Input placeholder="Name" />
             </Form.Item>
@@ -548,7 +548,7 @@ const ContractForm = () => {
                   <Form.Item
               label="Tax Id"
               name="taxId"
-              rules={[{ required: true, message: 'Please enter your tax id' }]}
+              rules={[{ required: false, message: 'Please enter your tax id' }]}
             >
               <Input placeholder="Tax Id" />
             </Form.Item>
@@ -560,7 +560,7 @@ const ContractForm = () => {
                   <Form.Item
               label="Home Address"
               name="homeAddress"
-              rules={[{ required: true, message: 'Please enter your home address' }]}
+              rules={[{ required: false, message: 'Please enter your home address' }]}
             >
               <TextArea rows={2} placeholder="Home Address" />
             </Form.Item>
@@ -603,7 +603,7 @@ const ContractForm = () => {
                   <Form.Item
               label="Email"
               name="email"
-              rules={[{ required: true, message: 'Please enter your email' },
+              rules={[{ required: false, message: 'Please enter your email' },
                       { type: 'email', message: 'Invalid email' }
                      ]}
             >
@@ -614,7 +614,7 @@ const ContractForm = () => {
                  <Form.Item
               label="Phone"
               name="phone"
-              rules={[{ required: true, message: 'Please enter your phone' }]}
+              rules={[{ required: false, message: 'Please enter your phone' }]}
             >
              <Input placeholder="+1 234 567 8900" />
             </Form.Item>
@@ -766,7 +766,7 @@ const ContractForm = () => {
                    <Form.Item
               label="Name"
               name="addressName" 
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[{ required: false, message: 'Please enter this field' }]}
             >
               <Input placeholder="Name" />
             </Form.Item>
@@ -776,7 +776,7 @@ const ContractForm = () => {
                  <Form.Item
               label="Address"
               name="address"
-              rules={[{ required: true, message: 'Please enter this field' }]}
+              rules={[{ required: false, message: 'Please enter this field' }]}
             >
               <Input placeholder="Address" />
             </Form.Item>
